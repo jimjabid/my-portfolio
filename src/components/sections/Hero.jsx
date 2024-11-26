@@ -27,7 +27,7 @@ export function Hero() {
       const timeline = gsap.timeline({
         repeat: -1,
       });
-
+//small comment only to dev branch
       titleRefs.current.forEach((titleRef) => {
         if (!titleRef.splitText?.current?.chars) return;
 
