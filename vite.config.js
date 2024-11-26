@@ -1,24 +1,24 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-import glsl from 'vite-plugin-glsl'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import glsl from "vite-plugin-glsl";
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react(), glsl()],
-  base: '/my-portfolio/',
+  base: command === 'serve' ? '/my-portfolio/' : '/',
   css: {
-    postcss: './postcss.config.js',
+    postcss: "./postcss.config.js",
   },
   optimizeDeps: {
-    include: ['lenis', 'three', 'gsap'],
+    include: ["lenis", "three", "gsap"],
   },
   build: {
     rollupOptions: {
       output: {
         manualChunks: {
-          'three-bundle': ['three'],
-          'gsap-bundle': ['gsap'],
+          "three-bundle": ["three"],
+          "gsap-bundle": ["gsap"],
         },
       },
     },
   },
-})
+}));
