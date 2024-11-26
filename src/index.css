@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add to your globals.css */
+
+
+html {
+  /* scroll-behavior: smooth; */
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0.6rem;
+  border-radius: 0.5rem;
+  background-color: #0a151f;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 0.6rem;
+  background-color: hsl(209, 57%, 20%);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(209, 57%, 20%);
+  background-color: hsl(209, 64%, 24%);
+}
+.nav-link-container {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.mobile-menu-enter {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.mobile-menu-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.loading-text {
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: 0.2em;
+  text-shadow: 0 0 10px rgba(172, 212, 246, 0.2);
+}
+
+.loader-container {
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.loader-bg {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(172, 212, 246, 0.3);
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    rgba(172, 212, 246, 1) 50%,
+    var(--color-primary) 100%
+  );
+  transform-origin: left center;
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(172, 212, 246, 0.5);
+  will-change: transform, opacity;
+}
+
+.loader::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 200%;
+  }
+}
+/* .hero-title { 
+  opacity: 1;
+  transform: none;
+  animation: none;
+} */
+
+.hero-titles-container {
+  position: relative;
+  /* height: 100px; Adjust based on your title size */
+  /* overflow: hidden; Prevent any overflow during animations */
+}
+
+.block-top,
+.block-bottom {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
