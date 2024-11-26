@@ -1,6 +1,7 @@
 import { Title } from "../ui/Title";
 import { ContactInfo } from "../ui/ContactInfo";
 import { SocialLinks } from "../ui/SocialLinks";
+//comment added to test github workflow on commit
 
 export function Contact() {
   return (
