@@ -116,3 +116,15 @@ body {
   backface-visibility: hidden;
 }
 
+.text-shadow {
+  text-shadow: 0 0 10px rgba(172, 212, 246, 0.2);
+}
+
+.shadow-card {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Font styles */
+.font-helvetica {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
