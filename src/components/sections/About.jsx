@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef } from "react";
 import { useContext } from "react";
 import { LoadingContext } from "../../context/LoadingContext";
-import { useAnimation } from "../../context/AnimationContext";
+import { useAnimation } from "../../hooks/useAnimation";
 import { Title } from "../ui/Title";
 import { AboutCard } from "../ui/AboutCard";
 import { TechGrid } from "../ui/TechGrid";
