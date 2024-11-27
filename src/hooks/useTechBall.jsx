@@ -5,20 +5,21 @@ export function useTechBall(imageUrl) {
   const texture = useTexture(imageUrl);
   
   const particlesGeometry = new THREE.BufferGeometry();
-  const particleCount = 2000; // Adjust based on performance needs
+  const particleCount = 2500; // Increased for more snow globe effect
   
   const positions = new Float32Array(particleCount * 3);
   const randoms = new Float32Array(particleCount);
   
-  // Create icosahedron for reference positions
-  const baseGeometry = new THREE.IcosahedronGeometry(1, 4);
-  const basePositions = baseGeometry.attributes.position.array;
-  
+  // Create sphere distribution for particles
   for (let i = 0; i < particleCount; i++) {
-    const i3 = i * 3;
-    positions[i3] = basePositions[i3 % basePositions.length];
-    positions[i3 + 1] = basePositions[(i3 + 1) % basePositions.length];
-    positions[i3 + 2] = basePositions[(i3 + 2) % basePositions.length];
+    const radius = 1;
+    const theta = THREE.MathUtils.randFloatSpread(360); 
+    const phi = THREE.MathUtils.randFloatSpread(360);
+
+    positions[i * 3] = radius * Math.sin(theta) * Math.cos(phi);
+    positions[i * 3 + 1] = radius * Math.sin(theta) * Math.sin(phi);
+    positions[i * 3 + 2] = radius * Math.cos(theta);
+    
     randoms[i] = Math.random();
   }
   

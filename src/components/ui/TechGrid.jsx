@@ -39,9 +39,12 @@ export function TechGrid() {
                 enableZoom={false}
                 enableDamping
                 dampingFactor={0.05}
+                autoRotate
+                autoRotateSpeed={0.5}
               />
-              <ambientLight intensity={1} />
-              <directionalLight position={[200, 200, 200]} intensity={5} />
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[10, 10, 5]} intensity={1} />
+              <pointLight position={[-10, -10, -5]} intensity={0.5} />
               <TechBall imageUrl={tech.image} />
             </Canvas>
           </div>
