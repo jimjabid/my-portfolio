@@ -1,28 +1,30 @@
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { TechBall } from './TechBall';
-import figmaImg from '/img/figma.png'
-import gitImg from '/img/git.png'
-import githubImg from '/img/github.png'
-import htmlImg from '/img/html.png'
-import javascriptImg from '/img/javascript.png'
-import mongodbImg from '/img/mongodb.png'
-import nodejsImg from '/img/nodejs.png'
-import reactImg from '/img/reactjs.png'
-import tailwindImg from '/img/tailwind.png'
+import figmaImg from '/img/figma.svg'
+import githubImg from '/img/github.svg'
+import mongodbImg from '/img/mongodb.svg'
+import nodejsImg from '/img/nodejs.svg'
+import reactImg from '/img/react.svg'
+import tailwindImg from '/img/tailwind.svg'
 import threejsImg from '/img/threejs.svg'
+import dynatraceImg from '/img/dynatrace.svg'
+import nginxImg from '/img/nginx.svg'
+import dockerImg from '/img/docker.svg'
+import awsImg from '/img/aws.svg'
 
 const techStack = [
   { name: 'Figma', image: figmaImg },
-  { name: 'Git', image: gitImg },
   { name: 'GitHub', image: githubImg },
-  { name: 'HTML', image: htmlImg },
-  { name: 'JavaScript', image: javascriptImg },
-  { name: 'MongoDB', image: mongodbImg },
+   { name: 'MongoDB', image: mongodbImg },
   { name: 'Node.js', image: nodejsImg },
   { name: 'React', image: reactImg },
   { name: 'Tailwind', image: tailwindImg },
   { name: 'Three.js', image: threejsImg },
+  { name: 'Dynatrace', image: dynatraceImg },
+  { name: 'Nginx', image: nginxImg },
+  { name: 'Docker', image: dockerImg },
+  { name: 'AWS', image: awsImg },
 ];
 
 export function TechGrid() {

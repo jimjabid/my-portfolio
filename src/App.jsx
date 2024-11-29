@@ -8,13 +8,15 @@ import { About } from "./components/sections/About";
 import { Projects } from "./components/sections/Projects";
 import { Contact } from "./components/sections/Contact";
 import { SmoothScrollProvider } from "./context/SmoothScrollContext";
+import { Background } from "./components/ui/Background";
 
 export default function App() {
   return (
     <LoadingProvider>
       <SmoothScrollProvider>
         <AnimationProvider>
-          <div className="min-h-screen bg-body-color">
+          <div id="body" className="min-h-screen">
+            <Background />
             <Loader />
             <Navbar />
             <main>
