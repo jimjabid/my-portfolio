@@ -14,7 +14,7 @@ export function TechBall({ imageUrl }) {
     
     // Animate particles with a more snow globe feel
     if (particlesRef.current) {
-      particlesRef.current.rotation.y += delta * 0.05; // Gentle constant rotation
+      //  particlesRef.current.rotation.y += delta * 0.05; // Gentle constant rotation
       
       // Make particles move in a more random, floating pattern
       particlesRef.current.geometry.attributes.position.array.forEach((_, i) => {
@@ -29,7 +29,7 @@ export function TechBall({ imageUrl }) {
     // Synchronize decals rotation
     if (decalFrontRef.current && decalBackRef.current) {
       const floatY = Math.cos(time * 0.15) * 0.02;
-      const floatZ = Math.sin(time * 0.15) * 0.02;
+      const floatZ = Math.cos(time * 0.15) * 0.02;
       
       decalFrontRef.current.position.y = floatY;
       decalFrontRef.current.position.z = floatZ;
@@ -56,7 +56,7 @@ export function TechBall({ imageUrl }) {
       </points>
       
       {/* Front decal */}
-      <mesh ref={decalFrontRef} position={[0, 0, 0.8]}>
+      <mesh ref={decalFrontRef} position={[0.0, 0, 0.2]} rotation={[0, -0.5, 0]}>
         <planeGeometry args={[1.5, 1.5]} />
         <meshBasicMaterial
           map={texture}
@@ -68,7 +68,7 @@ export function TechBall({ imageUrl }) {
       </mesh>
 
       {/* Back decal (rotated 180 degrees) */}
-      <mesh ref={decalBackRef} position={[0, 0, -0.8]} rotation={[0, Math.PI, 0]}>
+      <mesh ref={decalBackRef} position={[0.0, 0, -0.2]} rotation={[0, Math.PI+0.5, 0]}>
         <planeGeometry args={[1.5, 1.5]} />
         <meshBasicMaterial
           map={texture}
