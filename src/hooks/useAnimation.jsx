@@ -80,9 +80,106 @@ export function useAnimation() {
     //       }
     //     );
     //   };
-  return{
-    animateTitle,
-    animateCards,
-  }    
+
+    const animateProjectSlider = (projectRef) => {
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+        return gsap.from(projectRef, {
+            duration: isTouch ? 1 : 1.5,
+            xPercent: isTouch ? -50 : -100,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: projectRef,
+                start: "top 80%",
+                end: "top 20%",
+                scrub: isTouch ? 1 : true,
+                once: isTouch,
+            }
+        });
+    };
+
+    const animateProjectsOnScroll = (projectRef) => {
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        
+        return gsap.from(projectRef, {
+            duration: isTouch ? 1 : 1.5,
+            yPercent: isTouch ? 15 : 15,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: projectRef,
+                start: "top 80%",
+                end: "top 20%",
+                scrub: isTouch ? 1 : true,
+                once: isTouch,
+            
+            }
+        });
+    };
+
+    const handleProjectHover = (project, projectInfo) => {
+        gsap.to(projectInfo, {
+            scaleY: 1,
+            duration: 0.5,
+            ease: "power3.out"
+        });
+    };
+
+    const handleProjectLeave = (project, projectInfo) => {
+        gsap.to(projectInfo, {
+            scaleY: 0,
+            duration: 0.3,
+            ease: "power3.in"
+        });
+    };
+
+    const animateTechBalls = (techBallsRef) => {
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        
+        return gsap.from(techBallsRef, {
+            duration: isTouch ? 1 : 2,
+            y: 100,
+            opacity: 0,
+            stagger: {
+                each: 0.1,
+                ease: "power2.out"
+            },
+            scrollTrigger: {
+                trigger: techBallsRef[0],
+                start: "top bottom-=100",
+                end: "top center+=100",
+                scrub: isTouch ? 1 : 2,
+            }
+        });
+    };
+
+    const animateContactContent = (contentRef) => {
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        
+        return gsap.from(contentRef.children, {
+            y: 50,
+            opacity: 0,
+            duration: isTouch ? 1 : 1.5,
+            stagger: 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: contentRef,
+                start: "top 80%",
+                end: "top 20%",
+                scrub: isTouch ? 1 : true,
+                once: isTouch,
+            }
+        });
+    };
+
+    return{
+        animateTitle,
+        animateCards,
+        animateProjectSlider,
+        animateProjectsOnScroll,
+        handleProjectHover,
+        handleProjectLeave,
+        animateTechBalls,
+        animateContactContent,
+    }    
 } 
 

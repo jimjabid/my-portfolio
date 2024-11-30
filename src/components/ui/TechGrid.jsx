@@ -1,3 +1,7 @@
+import { useRef, useLayoutEffect, useContext } from 'react';
+import { LoadingContext } from '../../context/LoadingContext';
+import { useAnimation } from '../../hooks/useAnimation';
+import gsap from 'gsap';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { TechBall } from './TechBall';
@@ -28,11 +32,30 @@ const techStack = [
 ];
 
 export function TechGrid() {
+  const { animationsComplete } = useContext(LoadingContext);
+  const { animateTechBalls } = useAnimation();
+  const techBallsRef = useRef([]);
+  const containerRef = useRef(null);
+
+  useLayoutEffect(() => {
+    if (!animationsComplete) return;
+
+    const ctx = gsap.context(() => {
+      animateTechBalls(techBallsRef.current);
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, [animationsComplete, animateTechBalls]);
+
   return (
-    <div className="tech-container-wrapper mt-20 sm:mt-32">
+    <div ref={containerRef} className="tech-container-wrapper mt-20 sm:mt-32">
       <div className="tech-container grid grid-cols-2 gap-4 sm:flex sm:flex-row sm:flex-wrap sm:justify-center lg:gap-10">
-        {techStack.map((tech) => (
-          <div key={tech.name} className="tech-ball h-[11rem] sm:w-[15rem]">
+        {techStack.map((tech, index) => (
+          <div 
+            key={tech.name} 
+            ref={el => (techBallsRef.current[index] = el)}
+            className="tech-ball h-[11rem] sm:w-[15rem]"
+          >
             <Canvas
               camera={{ position: [-0.3, -0.1, 3], fov: 70 }}
               dpr={Math.min(window.devicePixelRatio, 2)}
