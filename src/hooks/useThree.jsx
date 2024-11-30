@@ -30,7 +30,11 @@ const useThree = (containerRef) => {
 
     // Adjust initial camera position based on viewport
     const aspectRatio = width / height;
-    const initialZ = Math.max(2.5, 3.5 / aspectRatio);
+    console.log(`width: ${width}, height: ${height}, aspectRatio: ${aspectRatio}`);
+    const initialZ = isMobile
+      ? Math.max(2.5, aspectRatio * 30)
+      : Math.min(2.5, aspectRatio / 1.2);
+    console.log(`initialZ: ${initialZ}`);
 
     // Modified camera setup
     cameraRef.current = new THREE.PerspectiveCamera(

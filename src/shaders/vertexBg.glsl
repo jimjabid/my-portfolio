@@ -119,7 +119,7 @@ void main() {
     // Adjust point size calculation for better mobile scaling
     float sizeScale = 1.0;
     #ifdef IS_MOBILE
-        sizeScale = max(3.0, viewportWidth / 768.0); // Using uniform instead of undefined width
+        sizeScale = 4.0;
     #endif
     
     gl_PointSize = (size * randoms * sizeScale) * (1.0/-mvPosition.z);

@@ -30,9 +30,9 @@ const techStack = [
 export function TechGrid() {
   return (
     <div className="tech-container-wrapper mt-20 sm:mt-32">
-      <div className="tech-container flex flex-row flex-wrap sm:justify-center lg:gap-10 justify-between">
+      <div className="tech-container grid grid-cols-2 gap-4 sm:flex sm:flex-row sm:flex-wrap sm:justify-center lg:gap-10">
         {techStack.map((tech) => (
-          <div key={tech.name} className="w-[15rem] h-[11rem] tech-ball">
+          <div key={tech.name} className="tech-ball h-[11rem] sm:w-[15rem]">
             <Canvas
               camera={{ position: [-0.3, -0.1, 3], fov: 70 }}
               dpr={Math.min(window.devicePixelRatio, 2)}
@@ -41,7 +41,7 @@ export function TechGrid() {
                 enableZoom={false}
                 enableDamping
                 dampingFactor={0.05}
-                autoRotate
+                autoRotate={false}
                 autoRotateSpeed={0.5}
               />
               <ambientLight intensity={0.5} />
