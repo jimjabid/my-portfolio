@@ -87,7 +87,7 @@ export function Loader() {
           ease: "power2.inOut",
         })
         .to([".block-top", ".block-bottom"], {
-          yPercent: (index) => (index === 0 ? -101 : 101),
+          yPercent: (index) => (index === 0 ? -200 : 200),
           duration: 0.6,
           ease: "power2.inOut",
           stagger: 0.1,

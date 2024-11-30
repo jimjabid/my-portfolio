@@ -128,3 +128,52 @@ body {
 .font-helvetica {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+.swiper-pagination-bullet {
+    background: var(--primary-color, #fff);
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--primary-color, #fff);
+    width: 30px !important;  /* Smaller size */
+    height: 30px !important; /* Smaller size */
+    background-color: rgba(172, 212, 246, 0.1); /* Subtle background */
+    border-radius: 50%; /* Circular shape */
+    backdrop-filter: blur(4px);
+}
+
+/* Remove default arrow */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    display: none;
+}
+
+/* Hover effect */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(172, 212, 246, 0.2);
+}
+
+/* Position adjustments */
+.swiper-button-next {
+    right: 10px;
+}
+
+.swiper-button-prev {
+    left: 10px;
+}
+
+.swiper-slide {
+    opacity: 0.4;
+    transition: opacity 0.3s;
+}
+
+.swiper-slide-active {
+    opacity: 1;
+}
