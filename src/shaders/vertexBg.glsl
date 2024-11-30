@@ -80,20 +80,28 @@ varying float vColorRandom;
 attribute float randoms;
 attribute float colorRandom;
 
+// Add viewport size uniform
+uniform float viewportWidth;
+
 void main() {
     vUv = uv;
     vColorRandom = colorRandom;
     
-    // Adjust noise calculation for consistent animation on mobile
-    float noiseFreq = 0.8;
-    float timeScale = 8.0;
+    // Base values for desktop
+    float noiseFreq = 0.5;
+    float timeScale = 9.0;
+    float displacement = 0.35;
+    float size = 60.0;
     
     #ifdef IS_MOBILE
-        noiseFreq = 0.6;
-        timeScale = 10.0;
+        // More subtle adjustments for mobile
+        noiseFreq = 0.8;      // Less dramatic noise
+        timeScale = 8.0;     // Slower animation
+        displacement = 0.4;    // Slightly less displacement
+        size = 80.0;          // More proportional size
     #endif
     
-    // Ensure consistent animation speed
+    // Enhanced noise calculation
     float noise = cnoise(noiseFreq * vec3(
         position.x + time/timeScale,
         position.y + time/timeScale,
@@ -101,25 +109,20 @@ void main() {
     ));
     
     vec3 newposition = position;
-    float displacement = 0.25;
     
-    #ifdef IS_MOBILE
-        displacement = 0.2; // Slightly reduced but still visible displacement
-    #endif
-    
-    // Apply displacement with randoms for variation
+    // Enhanced displacement with better mobile scaling
     newposition += displacement * normal * noise * (0.8 + randoms * 0.4);
     
     vec4 mvPosition = modelViewMatrix * vec4(newposition, 1.0);
     vNoise = noise;
     
-    // Adjust point size for better mobile visibility
-    float size = 50.0;
+    // Adjust point size calculation for better mobile scaling
+    float sizeScale = 1.0;
     #ifdef IS_MOBILE
-        size = 40.0;
+        sizeScale = max(3.0, viewportWidth / 768.0); // Using uniform instead of undefined width
     #endif
     
-    gl_PointSize = (size * randoms) * (1.0/-mvPosition.z);
+    gl_PointSize = (size * randoms * sizeScale) * (1.0/-mvPosition.z);
     gl_Position = projectionMatrix * mvPosition;
 }
 
