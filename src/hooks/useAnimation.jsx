@@ -171,6 +171,42 @@ export function useAnimation() {
         });
     };
 
+    const animateContactInfo = (containerRef) => {
+        const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        
+        // Animate reveal items
+        gsap.from(".reveal-item", {
+            y: 100,
+            opacity: 0,
+            duration: isTouch ? 1 : 1.5,
+            stagger: 0.3,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: containerRef,
+                start: "top 80%",
+                end: "top 20%",
+                scrub: isTouch ? 1 : true,
+                once: isTouch,
+            }
+        });
+
+        // Animate social links with a slight delay
+        gsap.from(".social-links > div", {
+            scale: 0,
+            opacity: 0,
+            duration: isTouch ? 0.8 : 1.2,
+            stagger: 0.2,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+                trigger: containerRef,
+                start: "top 70%",
+                end: "top 20%",
+                scrub: isTouch ? 1 : true,
+                once: isTouch,
+            }
+        });
+    };
+
     return{
         animateTitle,
         animateCards,
@@ -180,6 +216,7 @@ export function useAnimation() {
         handleProjectLeave,
         animateTechBalls,
         animateContactContent,
+        animateContactInfo,
     }    
 } 
 
