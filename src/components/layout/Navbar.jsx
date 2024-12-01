@@ -114,12 +114,12 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Mobile menu button - Add opacity-0 class and conditional rendering */}
+          {/* Mobile menu button - Update the styling */}
           <div className={`md:hidden ${!animationsComplete ? 'opacity-0' : ''}`}>
             {animationsComplete && (
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-tertiary hover:text-primary p-2 relative"
+                className="text-tertiary hover:text-primary p-2 relative z-[60]"
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -128,9 +128,9 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - Update the styling */}
       {isMenuOpen && animationsComplete && (
-        <div className="md:hidden fixed inset-0 bg-nav-bg/80 h-screen backdrop-blur-sm flex items-center justify-center">
+        <div className="md:hidden fixed inset-0 bg-nav-bg/95 h-screen backdrop-blur-sm flex items-center justify-center z-50">
           <div className="flex flex-col items-center space-y-8">
             {navLinks.map(({ href, label }) => (
               <div key={href} className="nav-link-container">

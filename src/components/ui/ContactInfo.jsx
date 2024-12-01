@@ -1,7 +1,7 @@
 export function ContactInfo() {
   return (
     <div className="flex flex-col justify-center items-center gap-[4rem] z-10">
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center reveal-item gap-y-5">
         <h2 className="text-primary text-shadow font-medium lg:text-[60px] md:text-[46px] sm:text-[36px] xs:text-[25px]">
           Send Me a Message
         </h2>
@@ -15,7 +15,7 @@ export function ContactInfo() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center reveal-item gap-y-5">
         <h2 className="text-primary text-shadow font-medium lg:text-[60px] md:text-[46px] sm:text-[36px] xs:text-[25px]">
           OR
         </h2>
@@ -23,7 +23,7 @@ export function ContactInfo() {
           Connect with me on social
         </h2>
 
-        <div className="flex gap-x-20">
+        <div className="flex gap-x-20 social-links">
           <div className="w-max flex h-max text-center px-[1rem] py-[0.25rem] bg-secondary shadow-contact rounded">
             <a
               href="https://github.com/jimjabid"

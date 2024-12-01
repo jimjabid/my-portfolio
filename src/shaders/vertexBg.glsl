@@ -97,8 +97,8 @@ void main() {
         // More subtle adjustments for mobile
         noiseFreq = 0.8;      // Less dramatic noise
         timeScale = 8.0;     // Slower animation
-        displacement = 0.4;    // Slightly less displacement
-        size = 80.0;          // More proportional size
+        displacement = 0.25;    // Slightly less displacement
+        size = 90.0;          // More proportional size
     #endif
     
     // Enhanced noise calculation

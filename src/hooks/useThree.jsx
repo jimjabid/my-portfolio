@@ -32,7 +32,7 @@ const useThree = (containerRef) => {
     const aspectRatio = width / height;
     console.log(`width: ${width}, height: ${height}, aspectRatio: ${aspectRatio}`);
     const initialZ = isMobile
-      ? Math.max(2.5, aspectRatio * 30)
+      ? Math.max(2.5, aspectRatio * 18)
       : Math.min(2.5, aspectRatio / 1.2);
     console.log(`initialZ: ${initialZ}`);
 
@@ -175,7 +175,7 @@ const useThree = (containerRef) => {
 
           // Dynamic camera movement
           const startZ = initialZ;
-          const endZ = 1.5; // Closer to viewer at end
+          const endZ = isMobile ? 0.0 : 1.5; // Closer to viewer at end
           cameraRef.current.position.z = startZ - progress * (startZ - endZ);
 
           // Dynamic zoom
