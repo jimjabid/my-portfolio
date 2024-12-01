@@ -19,7 +19,7 @@ export function AboutCard({ title, description }) {
             strokeWidth={1.5}
           />
         )}
-        <h3 className="text-tertiary sm:text-[30px] text-center tracking-[1.5px]">
+        <h3 className="text-tertiary sm:text-[30px] text-center tracking-[1.5px] uppercase font-bold">
           {title}
         </h3>
         <p className="text-tertiary font-helvetica font-medium md:text-[20.8px] text-center p-5">
