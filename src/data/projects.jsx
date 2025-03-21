@@ -1,7 +1,7 @@
 import mockUpShoe from '/img/mock-up-shoe-cust.png';
 import mockUpWave from '/img/mock-up-wave-project.png';
 import mockUpPortfolio from '/img/portfolio-project.png';
-import mockUpShoeCommerce from '/img/shoe-commerce.png';
+import mockUpMimiiShop from '/img/mimiishop.png';
 
 export const projectsData = [
   {
@@ -42,13 +42,14 @@ export const projectsData = [
   },
   {
     id: 4,
-    title: "ShoeCommerce",
-    description: "Explore my ongoing e-commerce platform project on GitHub. Crafted with",
-    technologies: ["React", "Node.js", "MongoDB", "Express", "Bootstrap"],
-    additionalText: "This dynamic shopping experience is a work in progress but you can check out the code on the link below.",
+    title: "Mimii Shop",
+    description: "E-commerce Petshop featuring real-time admin chat support via Socket.io and an AI-powered customer service agent for WhatsApp.",
+    technologies: ["MERN", "Socket.io", "LangChain","AWS S3", "Anthropic Claude"],
+    additionalText: "This production-ready e-commerce solution includes user authentication, product management, shopping cart functionality,and AI-powered customer support through an intelligent agent system.",
     links: {
-      code: "https://github.com/jimjabid/shoe-commerce"
+      live: "https://mimiishop.com",
+      code: "https://github.com/jimjabid/mimiishop"
     },
-    image: mockUpShoeCommerce
+    image: mockUpMimiiShop
   }
 ]; 
