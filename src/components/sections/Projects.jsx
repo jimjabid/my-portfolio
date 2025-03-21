@@ -34,7 +34,7 @@ export function Projects() {
         <Title>Works</Title>
       </div>
       <div ref={sliderRef}>
-        <ProjectSl2ider />
+        < ProjectSlider/>
       </div>
     </section>
   );
