@@ -1,8 +1,8 @@
-import { Award, AppWindow, Users } from 'lucide-react'; // Using Lucide icons instead of Remix icons
+import { Award, Code, Users } from 'lucide-react'; // Using Lucide icons
 
 const iconMap = {
   'Experience': Award,
-  'UI/UX': AppWindow,
+  'Technical Skills': Code,
   'Collaboration': Users
 };
 
@@ -26,6 +26,7 @@ export function AboutCard({ title, description }) {
           {description}
         </p>
       </div>
+      
     </div>
   );
 }
