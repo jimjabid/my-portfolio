@@ -1,13 +1,14 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useTechBall } from '../../hooks/useTechBall';
 import * as THREE from 'three';
 
-export function TechBall({ imageUrl }) {
+export function TechBall({ imageUrl, initialRotation = [0, 0, 0] }) {
   const { texture, particlesGeometry } = useTechBall(imageUrl);
   const particlesRef = useRef();
   const decalFrontRef = useRef();
   const decalBackRef = useRef();
+  const meshRef = useRef();
 
   useFrame((state, delta) => {
     const time = state.clock.getElapsedTime();
@@ -39,8 +40,17 @@ export function TechBall({ imageUrl }) {
     }
   });
 
+  // Apply the initial rotation when the component mounts
+  useEffect(() => {
+    if (meshRef.current) {
+      meshRef.current.rotation.x = initialRotation[0];
+      meshRef.current.rotation.y = initialRotation[1];
+      meshRef.current.rotation.z = initialRotation[2];
+    }
+  }, [initialRotation]);
+
   return (
-    <group>
+    <group ref={meshRef}>
       {/* Particles system */}
       <points ref={particlesRef}>
         <bufferGeometry {...particlesGeometry} />

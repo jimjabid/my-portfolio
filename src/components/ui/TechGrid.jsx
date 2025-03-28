@@ -49,16 +49,17 @@ export function TechGrid() {
 
   return (
     <div ref={containerRef} className="tech-container-wrapper mt-20 sm:mt-32">
-      <div className="tech-container grid grid-cols-2 gap-6 sm:gap-4 sm:flex sm:flex-row sm:flex-wrap sm:justify-center lg:gap-10">
+      <div className="tech-container grid grid-cols-2 gap-8 sm:gap-4 sm:flex sm:flex-row sm:flex-wrap sm:justify-center lg:gap-10">
         {techStack.map((tech, index) => (
           <div 
             key={tech.name} 
             ref={el => (techBallsRef.current[index] = el)}
-            className="tech-ball h-[9rem] w-[9rem] sm:h-[11rem] sm:w-[15rem]"
+            className="tech-ball h-[7rem] w-[7rem] sm:h-[11rem] sm:w-[15rem]"
           >
             <Canvas
               camera={{ position: [-0.3, -0.1, 3], fov: 70 }}
               dpr={Math.min(window.devicePixelRatio, 2)}
+              onPointerMissed={(e) => e.stopPropagation()}
             >
               <OrbitControls 
                 enableZoom={false}
@@ -66,12 +67,22 @@ export function TechGrid() {
                 dampingFactor={0.05}
                 autoRotate={false}
                 autoRotateSpeed={0.5}
-                enabled={window.innerWidth >= 640}
+                rotateSpeed={0.5}
+                enabled={true}
+                minPolarAngle={Math.PI/4}
+                maxPolarAngle={3*Math.PI/4}
               />
               <ambientLight intensity={0.5} />
               <directionalLight position={[10, 10, 5]} intensity={1} />
               <pointLight position={[-10, -10, -5]} intensity={0.5} />
-              <TechBall imageUrl={tech.image} />
+              <TechBall 
+                imageUrl={tech.image} 
+                initialRotation={[
+                  0.2 + Math.random() * 0.3, 
+                  0.3 + Math.random() * 0.3, 
+                  0
+                ]} 
+              />
             </Canvas>
           </div>
         ))}
