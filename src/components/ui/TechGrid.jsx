@@ -49,12 +49,12 @@ export function TechGrid() {
 
   return (
     <div ref={containerRef} className="tech-container-wrapper mt-20 sm:mt-32">
-      <div className="tech-container grid grid-cols-2 gap-4 sm:flex sm:flex-row sm:flex-wrap sm:justify-center lg:gap-10">
+      <div className="tech-container grid grid-cols-2 gap-6 sm:gap-4 sm:flex sm:flex-row sm:flex-wrap sm:justify-center lg:gap-10">
         {techStack.map((tech, index) => (
           <div 
             key={tech.name} 
             ref={el => (techBallsRef.current[index] = el)}
-            className="tech-ball h-[11rem] sm:w-[15rem]"
+            className="tech-ball h-[9rem] w-[9rem] sm:h-[11rem] sm:w-[15rem]"
           >
             <Canvas
               camera={{ position: [-0.3, -0.1, 3], fov: 70 }}
@@ -66,6 +66,7 @@ export function TechGrid() {
                 dampingFactor={0.05}
                 autoRotate={false}
                 autoRotateSpeed={0.5}
+                enabled={window.innerWidth >= 640}
               />
               <ambientLight intensity={0.5} />
               <directionalLight position={[10, 10, 5]} intensity={1} />
