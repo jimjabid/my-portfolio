@@ -166,7 +166,7 @@ export function useAnimation() {
                 start: "top 80%",
                 end: "top 20%",
                 scrub: isTouch ? 1 : true,
-                once: isTouch,
+                once: false,
             }
         });
     };
@@ -174,24 +174,39 @@ export function useAnimation() {
     const animateContactInfo = (containerRef) => {
         const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         
-        // Animate reveal items
-        gsap.from(".reveal-item", {
+        // Animate the contact card
+        gsap.from(".contact-card", {
             y: 100,
             opacity: 0,
             duration: isTouch ? 1 : 1.5,
-            stagger: 0.3,
             ease: "power2.out",
             scrollTrigger: {
                 trigger: containerRef,
                 start: "top 80%",
                 end: "top 20%",
                 scrub: isTouch ? 1 : true,
-                once: isTouch,
+                once: false,
+            }
+        });
+        
+        // Animate contact info items with staggered effect
+        gsap.from(".contact-info-item", {
+            y: 50,
+            opacity: 0,
+            duration: isTouch ? 0.8 : 1.2,
+            stagger: 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: containerRef,
+                start: "top 70%",
+                end: "top 20%",
+                scrub: isTouch ? 1 : true,
+                once: false,
             }
         });
 
         // Animate social links with a slight delay
-        gsap.from(".social-links > div", {
+        gsap.from(".social-links > a", {
             scale: 0,
             opacity: 0,
             duration: isTouch ? 0.8 : 1.2,
@@ -199,10 +214,10 @@ export function useAnimation() {
             ease: "back.out(1.7)",
             scrollTrigger: {
                 trigger: containerRef,
-                start: "top 70%",
+                start: "top 60%",
                 end: "top 20%",
                 scrub: isTouch ? 1 : true,
-                once: isTouch,
+                once: false,
             }
         });
     };

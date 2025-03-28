@@ -76,7 +76,7 @@ export function Hero() {
       
       arrowTimeline
         .to(arrowRef.current, {
-          y: 10,
+          y: 15,
           duration: 1,
           ease: "power1.inOut",
           onUpdate: function() {
@@ -84,10 +84,10 @@ export function Hero() {
             const progress = this.progress();
             // Apply elastic effect to the box when arrow moves down
             gsap.set(arrowBoxRef.current, {
-              borderBottomLeftRadius: 16 + (8 * progress),
-              borderBottomRightRadius: 16 + (8 * progress),
-              height: 64 + (8 * progress),
-              marginBottom: -(8 * progress), // Compensate for height increase
+              borderBottomLeftRadius: 16 + (12 * progress),
+              borderBottomRightRadius: 16 + (12 * progress),
+              height: 64 + (12 * progress),
+              marginBottom: -(12 * progress),
             });
           }
         })
@@ -102,10 +102,10 @@ export function Hero() {
             // Reverse the progress for the return animation
             const reverseProgress = 1 - progress;
             gsap.set(arrowBoxRef.current, {
-              borderBottomLeftRadius: 16 + (8 * reverseProgress),
-              borderBottomRightRadius: 16 + (8 * reverseProgress),
-              height: 64 + (8 * reverseProgress),
-              marginBottom: -(8 * reverseProgress), // Compensate for height increase
+              borderBottomLeftRadius: 16 + (12 * reverseProgress),
+              borderBottomRightRadius: 16 + (12 * reverseProgress),
+              height: 64 + (12 * reverseProgress),
+              marginBottom: -(12 * reverseProgress),
             });
           }
         });
@@ -156,9 +156,9 @@ export function Hero() {
     if (nextSection) {
       // Smoother scrolling with GSAP
       gsap.to(window, {
-        duration: 1.2,
+        duration: 1.8,
         scrollTo: {
-          y: nextSection.offsetTop,
+          y: nextSection.offsetTop +150,
           autoKill: false
         },
         ease: "power3.inOut"
@@ -203,7 +203,7 @@ export function Hero() {
             <div className="relative h-[100px]"> {/* Fixed height container to prevent layout shifts */}
               <div 
                 ref={arrowBoxRef} 
-                className="relative w-12 h-16 border border-white/30 flex items-center justify-center overflow-visible cursor-pointer"
+                className="relative w-12 h-16 border-2 border-white flex items-center justify-center overflow-visible cursor-pointer"
                 style={{
                   opacity: !animationsComplete ? 0 : 1,
                   transformOrigin: "center top",
@@ -224,7 +224,7 @@ export function Hero() {
                 />
                 
                 <div ref={arrowRef} className="absolute z-10">
-                  <svg width="16" height="32" viewBox="0 0 16 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="20" height="40" viewBox="0 0 16 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path 
                       fillRule="evenodd" 
                       clipRule="evenodd" 
