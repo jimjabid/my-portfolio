@@ -50,7 +50,7 @@ export function Contact() {
             <div className="p-3 bg-primary bg-opacity-10 rounded-full mr-4">
               <Mail size={28} className="text-primary" />
             </div>
-            <h3 className="text-xl font-bold text-tertiary">Get In Touch</h3>
+            <h3 className="text-xl font-grotesque text-primary">Get In Touch</h3>
           </div>
           
           <div className="space-y-6 text-tertiary">

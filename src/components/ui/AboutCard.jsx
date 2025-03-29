@@ -22,7 +22,7 @@ export function AboutCard({ title, description }) {
         <h3 className="text-tertiary sm:text-[30px] text-center tracking-[1.5px] uppercase font-bold">
           {title}
         </h3>
-        <p className="text-tertiary font-helvetica font-medium md:text-[20.8px] text-center p-5">
+        <p className="text-tertiary font-inter font-medium md:text-[20.8px] text-center p-5">
           {description}
         </p>
       </div>

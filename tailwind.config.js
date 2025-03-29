@@ -36,6 +36,8 @@ export default {
       },
 
       fontFamily: {
+        grotesque: ["Basement Grotesque", "sans-serif"],
+        body: ["Inter", "system-ui", "sans-serif"],
         helvetica: ["Helvetica Neue", "sans-serif"],
         bosch: ["Bosch", "serif"],
         bebas: ["Bebas Neue", "cursive"],

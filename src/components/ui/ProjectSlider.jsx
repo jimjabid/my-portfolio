@@ -91,7 +91,7 @@ export function ProjectSlider() {
                     className="slider-img w-[150%] h-full bg-cover absolute inset-0 top-0 right-0 transition-transform duration-300 group-hover:scale-105" 
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-secondary bg-opacity-90 p-4 transition-all duration-300 group-hover:bg-opacity-95">
-                    <h3 className="text-primary text-shadow text-xl text-center mb-1">{project.title}</h3>
+                    <h3 className="text-primary  text-xl text-center mb-1 font-grotesque">{project.title}</h3>
                     <p className="text-tertiary text-center text-sm">Click to view details</p>
                 </div>
             </div>
@@ -142,7 +142,7 @@ export function ProjectSlider() {
                         </div>
                         
                         <div className="p-6">
-                            <h2 className="text-primary text-shadow text-2xl md:text-3xl mb-4">{selectedProject.title}</h2>
+                            <h2 className="text-primary font-grotesque text-shadow text-2xl md:text-3xl mb-4">{selectedProject.title}</h2>
                             
                             <div className="mb-4">
                                 <p className="text-tertiary mb-2">
