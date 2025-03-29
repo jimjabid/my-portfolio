@@ -111,7 +111,7 @@ export function Loader() {
         {/* Top Block */}
         <div className="block-top w-full h-1/2 bg-nav-bg grid items-end justify-center overflow-hidden">
           <div className="relative mb-8">
-            <h1 className="loading-text text-primary font-helvetica font-bold tracking-[0.2em] text-center text-4xl sm:text-6xl">
+            <h1 className="loading-text text-primary font-grotesque font-bold tracking-[0.2em] text-center text-4xl sm:text-6xl">
               WELCOME
             </h1>
           </div>

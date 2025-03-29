@@ -94,7 +94,7 @@ export function About() {
             <div className="p-3 bg-primary bg-opacity-10 rounded-full mr-4">
               <Award size={36} className="text-primary" />
             </div>
-            <h3 className="text-2xl font-bold text-tertiary">My Journey</h3>
+            <h3 className="text-2xl font-grotesque text-primary">My Journey</h3>
           </div>
           
           <div className="space-y-4 text-tertiary">
@@ -121,14 +121,14 @@ export function About() {
                 <div className="p-3 bg-primary bg-opacity-10 rounded-full mr-4 group-hover:bg-opacity-20 transition-all duration-300">
                   <category.icon size={28} className="text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-tertiary">{category.title}</h3>
+                    <h3 className="text-xl font-grotesque text-primary">{category.title}</h3>
               </div>
               
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, i) => (
                   <span 
                     key={skill}
-                    className="px-3 py-1 bg-primary bg-opacity-10 rounded-full text-primary text-sm font-medium hover:bg-opacity-20 transition-all duration-300 hover:scale-105 transform"
+                    className="px-3 py-1 bg-primary bg-opacity-10 rounded-full text-tertiary  text-sm font-medium hover:bg-opacity-20 transition-all duration-300 hover:scale-105 transform"
                   >
                     {skill}
                   </span>

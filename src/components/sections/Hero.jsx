@@ -167,13 +167,13 @@ export function Hero() {
   };
 
   return (
-    <section id="home" className="mx-auto">
-      <div className="lg:px-15 sm:px-20 xs:py-[120px] sm:py-[130px] py-32 min-h-screen flex items-center">
+    <section id="home" className="h-screen flex items-center justify-center mx-auto">
+      <div className="w-full px-4 sm:px-20 lg:px-15">
         <div
           ref={containerRef}
-          className="home-left-col flex flex-col text-center lg:text-center font-title max-w-4xl mx-auto"
+          className="home-left-col flex flex-col items-center justify-center text-center w-full max-w-4xl mx-auto"
         >
-          <div className="hero-titles-container mb-20">
+          <div className="hero-titles-container mb-16 w-full mt-[15vh] md:mt-[25vh]">
             {titles.map((title, index) => {
               const [elementRef, splitTextRef] = useSplitText(title);
               // Store refs for animation
@@ -186,10 +186,9 @@ export function Hero() {
                 <h1
                   key={title}
                   ref={elementRef}
-                  className={`hero-title uppercase z-10 text-primary text-shadow font-helvetica font-bold m-0 leading-0 lg:text-[100px] md:text-[65px] sm:text-[50px] text-[40px]`}
+                  className={`hero-title uppercase z-10 text-primary text-shadow font-grotesque font-bold m-0 leading-0 whitespace-nowrap w-full md:text-[clamp(40px,12vw,100px)] text-[clamp(30px,10vw,80px)]`}
                   style={{
                     opacity: !animationsComplete ? 0 : 1,
-                    // visibility: isLoading ? "hidden" : "visible",
                   }}
                 >
                   {title}
@@ -199,7 +198,7 @@ export function Hero() {
           </div>
           <SocialLinks />
           
-          <div className="mt-16 flex justify-center">
+          <div className="mt-12 flex justify-center">
             <div className="relative h-[100px]"> {/* Fixed height container to prevent layout shifts */}
               <div 
                 ref={arrowBoxRef} 
