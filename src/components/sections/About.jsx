@@ -102,7 +102,7 @@ export function About() {
               I'm Jabid, originally from Colombia and living in Argentina since 2021. I speak Spanish and English fluently.
             </p>
             <p className="leading-relaxed">
-              With 4+ years in IT support, DevOps, and software development, I'm transitioning to full-time development, bringing technical expertise and a problem-solving mindset to new challenges.
+              With 4+ years in <span className="text-primary text-shadow font-helvetica font-bold"> IT support</span>, <span className="text-primary text-shadow font-helvetica font-bold">DevOps </span>, and <span className="text-primary text-shadow font-helvetica font-bold">software development</span>, I'm transitioning to<span className="text-primary text-shadow font-helvetica font-bold"> full-time development</span>, bringing <span className="text-primary text-shadow font-helvetica font-bold">technical expertise</span>  and a <span className="text-primary text-shadow font-helvetica font-bold">problem-solving mindset</span> to new challenges.
             </p>
             <p className="leading-relaxed">
               I thrive in team environments, communicate effectively, and adapt quickly to new technologies and challenges.
